@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Content, Calculation, Selection, Loop</title>
+</head>
+<body>
+    <script>
+        var name = "Raysalyn";
+        document.write("Welcome, " + name + "<br>");
+        
+        // b)
+        var headingElement = "h2"; 
+        document.write("<" + headingElement + ">Welcome, " + name + "</" + headingElement + ">" + "<br>");
+        
+        // c)
+        var fontSize = "30px"; 
+        var fontColor = "pink"; 
+        document.write("<p style='font-size: " + fontSize + "; color: " + fontColor + ";'>Welcome, " + name + "</p>" + "<br>");
+        
+        // Calculation
+        // a)
+        var num1 = 15;
+        var num2 = 10;
+        var sum = num1 + num2;
+        var difference = num1 - num2;
+        var product = num1 * num2;
+        document.write("Sum: " + sum + ", Difference: " + difference + ", Product: " + product + "<br>");
+        
+        // b)
+        var x1 = 5, x2 = 10, x3 = 15, x4 = 20;
+        var average = (x1 + x2 + x3 + x4) / 4;
+        document.write("Average: " + average + "<br>");
+        
+        // Selection
+        // a)
+        var numberVariable = -7;
+        if (numberVariable > 0) {
+            document.write(numberVariable + " is positive.<br>");
+        } else if (numberVariable < 0) {
+            document.write(numberVariable + " is negative.<br>");
+        } else {
+            document.write(numberVariable + " is zero.<br>");
+        }
+        
+        // b)
+        var string1 = "Hello";
+        var string2 = "Hello";
+        if (string1 === string2) {
+            document.write("Both strings are the same.<br>");
+        } else {
+            document.write("Strings are different.<br>");
+        }
+        
+        // Loop
+        // a)
+        var numberVariableLoop = 5;
+        document.write("<ul>");
+        for (var i = 1; i <= numberVariableLoop; i++) {
+            document.write("<li>" + i + "</li>");
+        }
+        document.write("</ul>");
+    </script>
+</body>
+</html>

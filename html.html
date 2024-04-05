@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Calculator</title>
+
+</head>
+<body>
+  <h1>SIMPLE CALCULATOR</h1>
+<div class="calculator">
+  <div class="display" id="display">0</div>
+  <button onclick="handleNumber(1)">1</button>
+  <button onclick="handleNumber(2)">2</button>
+  <button onclick="handleNumber(3)">3</button>
+  <button onclick="handleOperator('+')">+</button><br>
+  <button onclick="handleNumber(4)">4</button>
+  <button onclick="handleNumber(5)">5</button>
+  <button onclick="handleNumber(6)">6</button>
+  <button onclick="handleOperator('-')">-</button><br>
+  <button onclick="handleNumber(7)">7</button>
+  <button onclick="handleNumber(8)">8</button>
+  <button onclick="handleNumber(9)">9</button>
+  <button onclick="handleOperator('*')">*</button><br>
+  <button onclick="handleClear()">C</button>
+  <button onclick="handleNumber(0)">0</button>
+  <button onclick="handleEqual()">=</button>
+  <button onclick="handleOperator('/')">/</button>
+</div>
+ 
+ <style type="text/css">
+   body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  h1{
+    text-align: center;
+    color: white;
+  }
+  body {
+    background-image: url("photo2.jpg");
+  background-repeat: repeat-x;
+  }
+  .calculator {
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 70px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  .display {
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  button {
+    width: 70px;
+    height: 40px;
+    margin: 5px;
+    font-size: 16px;
+  }
+
+ </style>
+ <script type="text/javascript">
+   let display = document.getElementById('display');
+let currentInput = '';
+let memory = 0;
+let operator = '';
+
+function handleNumber(num) {
+  currentInput += num;
+  display.innerText = currentInput;
+}
+
+function handleOperator(op) {
+  if (currentInput !== '') {
+    if (operator !== '') {
+      memory = calculate(memory, parseFloat(currentInput), operator);
+    } else {
+      memory = parseFloat(currentInput);
+    }
+    operator = op;
+    currentInput = '';
+  }
+}
+
+function handleEqual() {
+  if (currentInput !== '') {
+    memory = calculate(memory, parseFloat(currentInput), operator);
+    display.innerText = memory;
+    currentInput = '';
+    operator = '';
+  }
+}
+
+function calculate(num1, num2, op) {
+  switch (op) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    case '/':
+      return num1 / num2;
+    default:
+      return num2;
+  }
+}
+
+function handleClear() {
+  display.innerText = '0';
+  currentInput = '';
+  memory = 0;
+  operator = '';
+}
+
+ </script>
+</body>
+</html>

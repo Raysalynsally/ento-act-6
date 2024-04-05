@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validation Example</title>
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirm = document.getElementById("confirm").value;
+            var checkbox = document.getElementById("checkbox").checked;
+
+            // Checking if password and confirm values are not empty
+            if (password.trim() === '' || confirm.trim() === '') {
+                alert("Password and confirm values are required.");
+                return false;
+            }
+
+            // Checking if password and confirm values are the same
+            if (password !== confirm) {
+                alert("Password and confirm values should be the same.");
+                return false;
+            }
+
+            // Checking if checkbox is checked
+            if (!checkbox) {
+                alert("The checkbox must be checked.");
+                return false;
+            }
+
+            // Form is valid
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+
+        <label for="confirm">Confirm Password:</label><br>
+        <input type="password" id="confirm" name="confirm"><br>
+
+        <input type="checkbox" id="checkbox" name="checkbox">
+        <label for="checkbox">I agree to the terms and conditions</label><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

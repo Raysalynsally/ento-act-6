@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    #userInput {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label>Technology Interests:</label>
+        <input type="checkbox" id="interest1" name="interest1" value="Web Development">
+        <label for="interest1">Web Development</label>
+        <input type="checkbox" id="interest2" name="interest2" value="Mobile Development">
+        <label for="interest2">Mobile Development</label>
+        <input type="checkbox" id="interest3" name="interest3" value="Data Science">
+        <label for="interest3">Data Science</label>
+        
+        <label for="comments">Comments:</label>
+        <textarea id="comments" name="comments" rows="4"></textarea>
+
+        <label>Contact Preference:</label>
+        <input type="radio" id="preferenceEmail" name="preference" value="Email" checked>
+        <label for="preferenceEmail">Email</label>
+        <input type="radio" id="preferencePhone" name="preference" value="Phone">
+        <label for="preferencePhone">Phone</label>
+
+        <label for="states">State:</label>
+        <select id="states" name="states">
+            <option value="Alabama">Alabama</option>
+            <option value="Florida">Florida</option>
+            <option value="Georgia">Georgia</option>
+            <option value="North Carolina">North Carolina</option>
+            <option value="South Carolina">South Carolina</option>
+        </select>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="userInput">
+        <h2>User Input</h2>
+        <p id="displayInput"></p>
+    </div>
+</div>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        var formData = new FormData(this);
+        var displayText = '';
+
+        for (var [key, value] of formData.entries()) {
+            displayText += key + ': ' + value + '<br>';
+        }
+
+        document.getElementById('displayInput').innerHTML = displayText;
+    });
+</script>
+
+</body>
+</html>
